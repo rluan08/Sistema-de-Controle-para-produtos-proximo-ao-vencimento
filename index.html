@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8" />
+  <link rel="manifest" href="manifest.json">
+  <meta name="theme-color" content="#1E3A5F">
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Cadastro de Produtos</title>
+  <link rel="icon" href="logo.png">
+  <link rel="stylesheet" href="style.css" />
+  <script src="https://unpkg.com/@zxing/library@latest"></script>
+</head>
+<body>
+  <div class="container">
+    <div class="header-container">
+      <h1>Cadastro de Produtos</h1>
+    </div>
+      <div id="message"></div>
+    <form id="product-form">
+      <label for="name">Nome do Produto:</label>
+      <input type="text" id="name" required />
+
+      <label for="quantity">Quantidade:</label>
+      <input type="text" inputmode="numeric" pattern="[0-9]*"id="quantity" required />
+
+      <label for="expiry">Data de Validade:</label>
+      <input type="text" inputmode="numeric" id="expiry" required />
+      
+      <label for="barcode">Código de Barras:</label>
+      <input type="text" inputmode="numeric" pattern="[0-9]*" id="barcode" required />
+
+      <div class="form-group"> 
+          <div class="input-with-camera">
+          </div>
+      </div>
+      
+      <div class="button-group">
+        <button type="button" id="view-list-btn" onclick="location.href='lista.html'">Ver Lista</button>
+        <button type="submit">Adicionar Produto</button>
+      </div>
+      <div id="message"></div>
+    </form>
+  </div>
+
+  <script src="script.js"></script>
+  <script>
+  if ("serviceWorker" in navigator) {
+    navigator.serviceWorker.register("sw.js")
+      .then(() => console.log("Service Worker registrado"))
+      .catch(err => console.error("Erro no SW:", err));
+  }
+  </script>
+</body>
+</html>

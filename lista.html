@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8" />
+  <link rel="manifest" href="manifest.json">
+  <meta name="theme-color" content="#1E3A5F">
+  <link rel="icon" href="logo.png">
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Lista de Produtos</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <div class="container">
+    <h1>Produtos Cadastrados</h1>
+    <div id="product-list"></div>
+  </div>
+  <footer class="ftr">
+    <div class="button-grupo">
+      <button id="delete-all-btn" class="delete-all-btn">Excluir Tudo</button>
+      <button onclick="location.href='index.html'">Voltar</button>
+    </div>
+    <div class="data-actions">
+      <button id="export-print">Gerar Relatório</button>
+    </div>
+  </footer>
+  <div id="edit-modal" class="modal hidden">
+    <div class="modal-content">
+      <h2>Editar Produto</h2>
+      <form id="edit-form">
+      <input type="hidden" id="edit-product-id">
+      
+      <label for="edit-name">Nome:</label>
+      <input type="text" id="edit-name" required>
+      
+      <label for="edit-quantity">Quantidade:</label>
+      <input type="text" inputmode="numeric" pattern="[0-9]*" id="edit-quantity" required>
+      
+      <label for="edit-expiry">Validade:</label>
+      <input type="text" inputmode="numeric" id="edit-expiry" required>
+      
+      <label for="edit-barcode">Código EAN:</label>
+      <input type="text" inputmode="numeric" pattern="[0-9]*" id="edit-barcode" required>
+      
+        <div class="modal-buttons">
+          <button type="button" id="btn-cancel-edit">Cancelar</button>
+          <button type="submit" id="btn-save-edit">Salvar</button>
+        </div>
+      </form>
+    </div>
+  </div>
+  <div id="user-modal" class="modal hidden">
+    <div class="modal-content">
+      <h2>Identificação</h2>
+      <label for="user-name">Seu Nome:</label>
+      <input type="text" id="user-name" required>
+    
+      <label for="user-sector">Setor:</label>
+      <input type="text" id="user-sector">
+    
+        <div class="modal-buttons">
+          <button id="btn-generate">Gerar Relatório</button>
+          <button id="btn-cancel">Cancelar</button>
+        </div>
+    </div>
+  </div>
+  <div id="confirm-modal" class="modal hidden">
+    <div class="modal-content">
+<p>Tem certeza que deseja excluir <br><strong id="delete-product-name"></strong>?</p>
+      <div class="modal-buttons">
+        <button id="btn-yes">Sim</button>
+        <button id="btn-no">Não</button>
+      </div>
+    </div>
+  </div>
+  <div id="delete-all-modal" class="modal hidden">
+    <div class="modal-content">
+      <p>⚠️ Isso apagará <strong>TODOS</strong> os produtos. Quer continuar?</p>
+      <div class="modal-buttons">
+        <button id="btn-confirm-delete-all"class="confirm-btn">Sim</button>
+        <button id="btn-cancel-delete-all"class="cancel-btn">Não</button>
+      </div>
+    </div>
+  </div>
+
+<script src="lista.js"></script>
+<script>
+  if ("serviceWorker" in navigator) {
+    navigator.serviceWorker.register("sw.js");
+  }
+</script>
+</body>
+</html>

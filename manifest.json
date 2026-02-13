@@ -1,0 +1,22 @@
+{
+  "name": "Controle de Produtos",
+  "short_name": "Estoque",
+  "description": "Sistema de controle de produtos e validade para supermercado",
+  "start_url": "index.html",
+  "display": "standalone",
+  "background_color": "#ffffff",
+  "theme_color": "#1E3A5F",
+  "orientation": "portrait",
+  "icons": [
+    {
+      "src": "logo.png",
+      "sizes": "192x192",
+      "type": "image/png"
+    },
+    {
+      "src": "logo.png",
+      "sizes": "512x512",
+      "type": "image/png"
+    }
+  ]
+}
